@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 #include "main.h"
 #include "list.h"
 
@@ -36,7 +37,7 @@ int main(int argc, char *argv[]) {
 	
 
 	// Create a linked list of integers.
-	pListOfNumbers = init_list();
+	pListOfNumbers = init_list(&compare_ints);
 	if (NULL == pListOfNumbers) {
 		printf("Failed ot init list.\n");
 	}
@@ -63,7 +64,7 @@ int main(int argc, char *argv[]) {
 #endif	
 
 	// Create a linked list of names.
-	pListOfNames = init_list();
+	pListOfNames = init_list(&compare_strings);
 	if (NULL == pListOfNames) {
 		printf("Failed ot init list.\n");
 	}
@@ -82,10 +83,6 @@ int main(int argc, char *argv[]) {
 			pValue = pValue->pNext;
 	}
 
-	//
-	// Sort the list of integers and dump them
-	//
-	sort_list_as_int(pListOfNumbers);
 
 	exit(iRC);
 

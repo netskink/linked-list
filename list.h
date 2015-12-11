@@ -6,7 +6,7 @@
 
 /*
  record Node {
-    data; // The data being stored in the node
+    data; // The data being stored in the node.  Currently it can be either a string or integer.
     Node next // A reference to the next node, null for last node
  }
  record List {
@@ -22,12 +22,20 @@ typedef struct node node_t;
 
 struct list {
 	struct node *pFirst;
+	int (*pfCompare)(node_t *,node_t *);  // the function used to compare two nodes.
 };
 typedef struct list list_t;
 
 int append(list_t *pList, void *pData);
 
-list_t *init_list(void);
+//list_t *init_list(void);
+list_t *init_list(int (*pFunc)(node_t *,node_t *) ) ;
 
-// could use a comparision function as second parameter rather than dedicated function name: ie. _as_number.
-list_t *sort_list_as_numbers(list_t *pList);
+bool is_list_empty(list_t *pList);
+bool is_list_singleton(list_t *pList);
+
+list_t * merge_sort(list_t *pList);
+list_t * merge(list_t *pListLeft, list_t *pListRight);
+
+int compare_ints(node_t *pNode1, node_t *pNode2);
+int compare_strings(node_t *pNode1, node_t *pNode2);

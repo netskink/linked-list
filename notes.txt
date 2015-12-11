@@ -1,0 +1,12 @@
+How to use gdb
+
+$ gdb -tui ./test-list
+
+All you will need once you get in gdb
+
+gdb> set focus cmd
+gdb> break 131  ' to set the break point at line 131
+gdb> run
+gdb> next
+gdb> step
+gdb> print *(int *) pNode->pData
