@@ -158,6 +158,15 @@ int main(int argc, char *argv[]) {
 			pNode = pNode->pNext;
 	}
 
+	// Check out routine
+	if (pListSortedNumbers->count == 10) {
+		printf("PASS: sorted list element count accurate.\n");
+	} else {
+		printf("FAIL: sorted list element count mismatch.\n");
+	}
+		
+
+
 	exit(iRC);
 
 }

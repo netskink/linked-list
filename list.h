@@ -23,6 +23,7 @@ typedef struct node node_t;
 struct list {
 	struct node *pFirst;
 	int (*pfCompare)(node_t *,node_t *);  // the function used to compare two nodes.
+	int count;
 };
 typedef struct list list_t;
 

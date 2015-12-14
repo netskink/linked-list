@@ -43,6 +43,8 @@ int append(list_t *pList, void *pData) {
 		}
 		pTip->pNext = pNewNode;
 	}
+	pList->count++;
+
 	return(0);
 }
 
@@ -57,6 +59,8 @@ list_t *init_list(int (*pFunc)(node_t *,node_t *) ) {
 
 	pList->pFirst = NULL;
 	pList->pfCompare = pFunc;
+	pList->count = 0;
+
 	return (pList);
 }
 
